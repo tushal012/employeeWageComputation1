@@ -8,11 +8,14 @@ public class EmployeeWage {
         int IS_FULL_TIME = 2;
         int  EMP_RATE_PER_HR=20;
         int WORKING_HOURS=20;
+        int MAX_HOURS_IN_MONTH=100;
+        int TOTAL_EMP_HOURS=0;
+        int TOTAL_WORKING_DAYS=0;
         int EMP_HR =0;
-        int salary=0;
-        int MONTHLY_SALARY=0;
 
-        for (int i = 1; i <= WORKING_HOURS; i++) {
+
+        while (TOTAL_EMP_HOURS < MAX_HOURS_IN_MONTH && TOTAL_WORKING_DAYS < WORKING_HOURS) {
+            TOTAL_WORKING_DAYS++;
             double randomCheck = Math.floor(Math.random() * 10) % 3;
             switch ((int) randomCheck) {
                 case 1:
@@ -25,8 +28,9 @@ public class EmployeeWage {
                     EMP_HR = 0;
 
             }
-            salary = EMP_RATE_PER_HR * EMP_HR;
-            System.out.println(salary);
+            TOTAL_EMP_HOURS += EMP_HR;
         }
+        int monthlySalary = EMP_RATE_PER_HR * TOTAL_EMP_HOURS;
+        System.out.println(monthlySalary);
     }
 }
