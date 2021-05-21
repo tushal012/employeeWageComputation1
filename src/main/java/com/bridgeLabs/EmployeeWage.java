@@ -4,17 +4,22 @@ public class EmployeeWage {
     public static void main(String[] args) {
         System.out.println("Welcome to Employee wage computation");
         int IS_PRESENT = 1;
+        int IS_PART_TIME = 1;
+        int IS_FULL_TIME = 2;
         int  EMP_RATE_PER_HR=20;
-        int EMP_HR=8;
+        int EMP_HR =0;
         int salary=0;
 
 
         double randomCheck = Math.floor(Math.random() * 10) % 2;
-        if(randomCheck == IS_PRESENT) {
-            System.out.println("salary is"+" "+EMP_RATE_PER_HR * EMP_HR);
+        if (randomCheck == IS_PART_TIME) {
+            EMP_HR = 4;
+        } else if (randomCheck == IS_FULL_TIME) {
+            EMP_HR= 8;
         } else {
-            salary = 0;
-            System.out.println("Employee is absent" + " " + salary);
+            EMP_HR =0;
         }
+        salary =(EMP_RATE_PER_HR * EMP_HR);
+        System.out.println(salary);
     }
 }
