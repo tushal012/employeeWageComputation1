@@ -11,6 +11,7 @@ public class EmployeeWage {
             totalWorkingDays++;
             double randomCheck = Math.floor(Math.random() * 10) % 3;
             empHrs=getWorkingHours((int) randomCheck);
+            //totalEmpHrs += empHrs;
             int monthlySalary = empRate * empHrs;
             totalWage+=monthlySalary;
             System.out.println(monthlySalary);
