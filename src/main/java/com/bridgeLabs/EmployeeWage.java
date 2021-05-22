@@ -1,31 +1,25 @@
 package com.bridgeLabs;
 
 public class EmployeeWage {
-    public static final int ispartTime = 1;
-    public static final int isfullTime = 2;
-    public static final int empWagePerHr = 20;
-    public static final int workingDays = 20;
-    public static final int maxHrsInMonth = 50;
     public static int empHrs=0;
-    public static void calculateEmployeeWage()
+    public static void calculateEmployeeWageForCompany(String company,int empRate,int numOfDays,int maxHrs)
     {
         int totalEmpHrs = 0;
         int totalWorkingDays = 0;
         int totalWage=0;
-        while (totalEmpHrs < maxHrsInMonth && totalWorkingDays < workingDays) {
+        while (totalEmpHrs < maxHrs && totalWorkingDays < numOfDays) {
             totalWorkingDays++;
-            int randomValue = (int) (Math.random() * 3 + 1);
-            empHrs=getWorkingHours(randomValue);
-            totalEmpHrs += empHrs;
-            int monthlySalary = empWagePerHr * totalEmpHrs;
+            double randomCheck = Math.floor(Math.random() * 10) % 3;
+            empHrs=getWorkingHours((int) randomCheck);
+            int monthlySalary = empRate * empHrs;
             totalWage+=monthlySalary;
             System.out.println(monthlySalary);
         }
-        System.out.println("Total wage is"+totalWage);
+        System.out.println("Total Employee wage For Company"+" "+company+" "+totalWage);;
     }
-    public static int getWorkingHours(int randomValue)
+    public static int getWorkingHours(int randomCheck)
     {
-        switch (randomValue) {
+        switch (randomCheck) {
             case 1:
                 empHrs = 4;
                 break;
@@ -38,8 +32,10 @@ public class EmployeeWage {
         return empHrs;
     }
     public static void main(String args[]){
-        System.out.println("Welcome to Employee wage computation");
-        calculateEmployeeWage();
+        System.out.println("Welcome to Employee Wage Computation");
+        calculateEmployeeWageForCompany("Wipro",20,
+                2,10);
+        calculateEmployeeWageForCompany("TCS",10,4,2);
         }
 
 }
