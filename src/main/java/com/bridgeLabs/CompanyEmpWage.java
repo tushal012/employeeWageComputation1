@@ -37,8 +37,8 @@ public class CompanyEmpWage {
         int totalWage = 0;
         while (totalEmpHrs < maxHrs && totalWorkingDays < numOfDays) {
             totalWorkingDays++;
-            int randomValue = (int) (Math.random() * 3 + 1);
-            int empHrs = getWorkingHours(randomValue);
+            double randomCheck = Math.floor(Math.random() * 10) % 3;
+            int empHrs = getWorkingHours((int) randomCheck);
             int monthlySalary = empRate * empHrs;
             totalWage += monthlySalary;
 
