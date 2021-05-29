@@ -27,6 +27,7 @@ public class EmployeeWageBuilder {
         }
         Iterator<CompanyEmpWage> itr = al.iterator();
         while (itr.hasNext()) {
+
             itr.next().calculateEmpWageCompany();
         }
     }

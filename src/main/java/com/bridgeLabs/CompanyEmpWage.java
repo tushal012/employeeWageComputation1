@@ -14,7 +14,7 @@ public class CompanyEmpWage {
     }
     public static int getWorkingHours(int randomValue) {
 
-        int empHrs;
+        int empHrs = 0;
         switch (randomValue) {
             case 1:
                 empHrs = 4;
@@ -26,7 +26,7 @@ public class CompanyEmpWage {
                 empHrs = 0;
                 break;
             default:
-                throw new IllegalStateException("Unexpected value: " + randomValue);
+                
         }
         return empHrs;
     }
