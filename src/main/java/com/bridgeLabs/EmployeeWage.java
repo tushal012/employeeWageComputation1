@@ -1,7 +1,5 @@
 package com.bridgeLabs;
 
-import java.util.Scanner;
-
 public class EmployeeWage {
     public static int empHrs = 0;
 
@@ -18,20 +16,23 @@ public class EmployeeWage {
         this.maxHrs = maxHrs;
     }
 
-    public void calculateEmployeeWageForCompany() {
+    public void calculateEmpWageCompany() {
         int totalEmpHrs = 0;
         int totalWorkingDays = 0;
         int totalWage = 0;
         while (totalEmpHrs < maxHrs && totalWorkingDays < numOfDays) {
             totalWorkingDays++;
-            int randomValue = (int) (Math.random() * 3 + 1);
-            empHrs = getWorkingHours(randomValue);
+            double randomCheck = Math.floor(Math.random() * 10) % 3;
+            empHrs = getWorkingHours((int) randomCheck);
             int monthlySalary = empRate * empHrs;
             totalWage += monthlySalary;
-            System.out.println(monthlySalary);
+
         }
+
         System.out.println("Total Employee wage For Company" + " " + companyName + " " + totalWage);
     }
+
+
 
     public static int getWorkingHours(int randomCheck) {
         switch (randomCheck) {
@@ -50,9 +51,9 @@ public class EmployeeWage {
     public static void main(String args[]) {
         System.out.println("Welcome to Employee Wage Computation");
         EmployeeWage employeeWageBuilder=new EmployeeWage("Wipro",20,2,10);
-        employeeWageBuilder.calculateEmployeeWageForCompany();
+        employeeWageBuilder.calculateEmpWageCompany();
         EmployeeWage employeeWageBuilder1=new EmployeeWage("Infosys",10,4,2);
-        employeeWageBuilder1.calculateEmployeeWageForCompany();
+        employeeWageBuilder1.calculateEmpWageCompany();
         }
     }
 
